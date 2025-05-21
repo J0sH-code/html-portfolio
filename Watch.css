@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'raleway', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #D2D0A0;
+}
+
+.menubar{
+    background-color: #FFFBDE;
+    text-align: center;
+    border-bottom-left-radius:15px;
+    border-bottom-right-radius: 15px;
+
+}
+
+.pic{
+
+    background-image: url(".//Pictures/istockphoto-1317323736-1024x1024.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.menubar h1{
+    font-family: "Monsieur La Doulaise", cursive;
+    font-weight: 500;
+    font-style: normal;
+    color: wheat;
+    font-size: 50px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    backdrop-filter: blur(10px);
+    background: transparent;
+}
+
+.menubar ul{
+    display: inline-flex;
+    list-style: none;
+    color: #096B68;
+
+}
+
+.menubar a{
+    color: #096B68;
+    text-decoration: none;
+    
+}
+
+.menubar ul li{
+    width: 180px;
+    margin: 10px;
+   padding: 10px;
+    border: 1px solid wheat;
+    border-radius: 5px;
+}
+
+
+.active, .menubar ul li:hover{
+    background-color: #90D1CA;
+    border-radius: 3PX;
+}
+
+.video{
+    text-align: center;
+    margin-top: 30px;
+    
+}
+
+.video video{
+    border: 10px solid #9EBC8A;
+    border-radius: 5px;
+}

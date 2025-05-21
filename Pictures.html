@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Pictures.css">
+    <link href="https://fonts.googleapis.com/css2?family=Meow+Script&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+    <title>Pictures</title>
+</head>
+<body>
+    <div class="menubar">
+        <div class="pic">
+            <h1>Happy Birthday Darling</h1>
+        </div>
+        
+        <ul>
+            <li><a href="./Birthay.html">Home</a></li>
+            <li><a href="./Poems.html">Poems</a></li>
+            <li><a href="./Pictures.html">Pictures</a></li>
+            <li><a href="./Watch.html">Watch this</a></li>
+
+        </ul>
+
+    </div>
+
+    <h2>AYAW TALAGAA DARLING 😭</h2>
+
+    <div class="slider">
+  <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="next" onclick="changeSlide(1)">&#10095;</button>
+</div>
+
+<div class="slider">
+  <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="next" onclick="changeSlide(1)">&#10095;</button>
+</div>
+
+<script>
+  const slider = document.querySelector('.slider');
+
+  // Create and add 12 images dynamically
+  for(let i = 1; i <= 12; i++) {
+    const img = document.createElement('img');
+    img.src = `./Picture/${i}.jpeg`;
+    img.alt = `Image ${i}`;
+    img.classList.add('slide');
+    if(i === 1) img.classList.add('active'); // Show first image initially
+
+    // Debug: Log if image is loaded or not
+    img.onerror = () => console.error(`Image ./Picture/${i}.jpeg failed to load.`);
+    img.onload = () => console.log(`Image ./Picture/${i}.jpeg loaded successfully.`);
+
+    slider.appendChild(img);
+  }
+
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+
+  function showSlide(index) {
+    if (index >= slides.length) currentSlide = 0;
+    else if (index < 0) currentSlide = slides.length - 1;
+    else currentSlide = index;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  function changeSlide(direction) {
+    showSlide(currentSlide + direction);
+  }
+</script>
+
+<style>
+  .slider {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    background-color: #ddd; /* light background to help debug */
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+    height: auto;
+    border: 2px solid #333; /* border to see if images exist */
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+    user-select: none;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+  }
+</style>
+
+    
+</body>
+</html>
